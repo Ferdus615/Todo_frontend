@@ -16,6 +16,11 @@ function Page() {
     console.log("Archived Tasks Array:", archiveTask);
   }, [archiveTask]);
 
+  const [deleteTask, setDeleteTask] = useState([]);
+  useEffect(() => {
+    console.log("Deleted Task Array: = ", deleteTask);
+  }, [deleteTask]);
+
   const handleTitle = (e) => {
     setTitle(e.target.value);
   };
@@ -59,7 +64,13 @@ function Page() {
   };
 
   const deleteHanlder = (id) => {
+    const taskToDelete = tasks.find((task) => task.id === id);
+
     setTasks((oldtask) => oldtask.filter((task) => task.id !== id));
+
+    if (taskToDelete) {
+      setDeleteTask((deletedTask) => [taskToDelete, ...deleteTask]);
+    }
   };
 
   let renderTask = (

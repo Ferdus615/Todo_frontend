@@ -1,0 +1,28 @@
+{
+  // Ensure .jsx files are treated as React JSX
+  "files.associations": {
+    "*.jsx": "javascriptreact",
+    "*.js": "javascriptreact",
+    "*.tsx": "typescriptreact"
+  },
+
+  // Enable Emmet in JS/JSX/TSX files
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "javascriptreact": "html",
+    "typescriptreact": "html"
+  },
+  "emmet.triggerExpansionOnTab": true,
+
+  // Make sure suggestions appear inside strings and JSX
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+
+  // Useful editor behaviors for React/JSX
+  "editor.autoClosingBrackets": "languageDefined",
+  "editor.autoClosingQuotes": "languageDefined",
+  "editor.formatOnSave": true
+}

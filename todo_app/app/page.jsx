@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Sidebar from "@/components/Sidebar";
+import TaskForm from "@/components/TaskForm";
 
 function Page() {
   const [title, setTitle] = useState("");
@@ -85,7 +87,7 @@ function Page() {
           <div
             key={task.id}
             className={`border-zinc-400 border-1 p-2 flex flex-col w-65 rounded-md ${
-              task.isCompleted ? "bg-emerald-400" : "bg-transparent"
+              task.isCompleted ? "bg-emerald-700" : "bg-transparent"
             }`}
           >
             <span className="text-lg font-bold">{task.title}</span>
@@ -129,49 +131,8 @@ function Page() {
 
   return (
     <div className="flex h-screen w-screen">
-      <aside className="flex flex-col min-w-30 gap-5 p-5 bg-[#101720]">
-        <div className="flex justify-center items-center">
-          <Image src="/logo.svg" height={50} width={40} alt="logo" />
-        </div>
-        <button className="text-sm pt-1 flex gap-2 items-center font-extralight cursor-pointer">
-          <Image src="/add.svg" height={18} width={18} alt="Add task" />
-          <span>New task</span>
-        </button>
-        <button className="text-sm pt-1 flex gap-2 items-center font-extralight cursor-pointer">
-          <Image src="/archiveBox.svg" height={18} width={18} alt="Archiver" />
-          <span>Archiver</span>
-        </button>
-        <button className="text-sm pt-1 flex gap-2 items-center font-extralight cursor-pointer">
-          <Image src="/trash.svg" height={18} width={18} alt="Trash" />
-          <span>Trash</span>
-        </button>
-      </aside>
-
-      <div className="flex-grow p-5">
-        <h1 className="text-center text-3xl font-medium mb-10">My Todo List</h1>
-        <form onSubmit={handleSubmit} className="flex justify-center gap-2">
-          <input
-            placeholder="Enter task here."
-            className="border-1 border-black rounded-sm w-50 p-1 text-sm"
-            value={title}
-            onChange={handleTitle}
-          />
-          <input
-            placeholder="Enter description here."
-            className="border-1 border-black rounded-sm w-50 p-1 text-sm"
-            value={desc}
-            onChange={handleDesc}
-          />
-          <button
-            type="submit"
-            className="border-1 border-black bg-black rounded-sm text-white w-50 p-1 text-sm"
-          >
-            Add Task
-          </button>
-        </form>
-
-        <div>{renderTask}</div>
-      </div>
+      <Sidebar />
+      <TaskForm />
     </div>
   );
 }

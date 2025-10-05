@@ -12,6 +12,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  icons: {
+    icon: "/icon.svg", // Reference the file in your /public directory
+  },
   title: "Ferdus's Todo App",
   description: "Developed By Ferdus Rhaman Khan.",
 };

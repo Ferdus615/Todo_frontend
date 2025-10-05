@@ -118,7 +118,10 @@ function Page() {
 
   return (
     <div className="flex h-screen w-screen">
-      <aside className="flex flex-col min-w-30 items-start gap-5 p-5 bg-[#101720]">
+      <aside className="flex flex-col min-w-30 gap-5 p-5 bg-[#101720]">
+        <div className="flex justify-center items-center">
+          <Image src="/logo.svg" height={50} width={40} alt="logo" />
+        </div>
         <button className="text-sm pt-1 flex gap-2 items-center font-extralight cursor-pointer">
           <Image src="/add.svg" height={18} width={18} alt="Add task" />
           <span>New task</span>

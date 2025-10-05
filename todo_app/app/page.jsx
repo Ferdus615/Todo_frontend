@@ -64,7 +64,7 @@ function Page() {
   );
   if (tasks.length > 0) {
     renderTask = (
-      <div className="flex gap-5 mt-10">
+      <div className="flex flex-wrap gap-5 mt-10">
         {tasks.map((task, index) => (
           <div
             key={index}
@@ -79,12 +79,7 @@ function Page() {
                   CompletedHandler(task.id);
                 }}
               >
-                <Image
-                  src="/checkbox.svg"
-                  height={20}
-                  width={20}
-                  alt="Completed"
-                />
+                <Image src="/done.svg" height={18} width={18} alt="Completed" />
               </button>
               <button
                 className="text-sky-500 p-1 rounded-sm cursor-pointer"
@@ -93,9 +88,9 @@ function Page() {
                 }}
               >
                 <Image
-                  src="/folder-download.svg"
-                  height={20}
-                  width={20}
+                  src="/archive.svg"
+                  height={18}
+                  width={18}
                   alt="archive"
                 />
               </button>
@@ -105,7 +100,7 @@ function Page() {
                   deleteHanlder(task.id);
                 }}
               >
-                <Image src="/trash.svg" height={20} width={20} alt="Trash" />
+                <Image src="/delete.svg" height={18} width={18} alt="Trash" />
               </button>
             </span>
           </div>
@@ -116,16 +111,23 @@ function Page() {
 
   return (
     <div className="flex h-screen w-screen">
-      <aside className="flex flex-col items-start gap-5 p-5 bg-zinc-900">
-        <button>New task</button>
-        <button>Archive</button>
-        <button>Trash</button>
+      <aside className="flex flex-col min-w-35 items-start gap-5 p-5 bg-[#101720]">
+        <button className="text-sm pt-1 flex gap-2 items-center font-extralight">
+          <Image src="/add.svg" height={18} width={18} alt="Add task" />
+          New task
+        </button>
+        <button className="text-sm pt-1 flex gap-2 items-center font-extralight">
+          <Image src="archiveBox.svg" height={18} width={18} alt="Archiver" />
+          Archiver
+        </button>
+        <button className="text-sm pt-1 flex gap-2 items-center font-extralight">
+          <Image src="trash.svg" height={18} width={18} alt="Trash" />
+          Trash
+        </button>
       </aside>
 
-      <div className="flex-grow pt-5">
-        <h1 className="text-center text-3xl font-medium text-emerald-400 mb-10">
-          My Todo List
-        </h1>
+      <div className="flex-grow p-5">
+        <h1 className="text-center text-3xl font-medium mb-10">My Todo List</h1>
         <form onSubmit={handleSubmit} className="flex justify-center gap-2">
           <input
             placeholder="Enter task here."

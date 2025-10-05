@@ -114,7 +114,7 @@ function Page() {
           <div
             key={task.id}
             className={`border border-zinc-400 p-3 flex flex-col w-64 rounded-md shadow-sm transition-all duration-200 ${
-              task.isCompleted ? "bg-emerald-700 text-white" : "bg-[#1e1e1e]"
+              task.isCompleted ? "bg-emerald-700" : "bg-[#10172a]"
             }`}
           >
             <span className="text-lg font-bold">{task.title}</span>
@@ -150,24 +150,33 @@ function Page() {
     );
 
   return (
-    <div className="flex h-screen w-screen text-white bg-[#0e141b]">
+    <div className="flex h-screen w-screen bg-[#0e141b]">
       {/* Sidebar */}
       <aside className="flex flex-col min-w-32 gap-5 p-5 bg-[#101720]">
         <div className="flex justify-center items-center">
           <Image src="/logo.svg" height={50} width={40} alt="logo" />
         </div>
-        <button className="text-sm pt-1 flex gap-2 items-center font-extralight cursor-pointer">
+        <a
+          href=""
+          className="text-sm pt-1 flex gap-2 items-center font-extralight cursor-pointer"
+        >
           <Image src="/add.svg" height={18} width={18} alt="Add task" />
           <span>New task</span>
-        </button>
-        <button className="text-sm pt-1 flex gap-2 items-center font-extralight cursor-pointer">
+        </a>
+        <a
+          href="/archiver"
+          className="text-sm pt-1 flex gap-2 items-center font-extralight cursor-pointer"
+        >
           <Image src="/archiveBox.svg" height={18} width={18} alt="Archiver" />
           <span>Archiver</span>
-        </button>
-        <button className="text-sm pt-1 flex gap-2 items-center font-extralight cursor-pointer">
+        </a>
+        <a
+          href="/trash"
+          className="text-sm pt-1 flex gap-2 items-center font-extralight cursor-pointer"
+        >
           <Image src="/trash.svg" height={18} width={18} alt="Trash" />
           <span>Trash</span>
-        </button>
+        </a>
       </aside>
 
       {/* Main content */}
@@ -176,19 +185,19 @@ function Page() {
         <form onSubmit={handleSubmit} className="flex justify-center gap-2">
           <input
             placeholder="Enter task title..."
-            className="border border-zinc-500 rounded-sm w-60 p-1 text-sm bg-transparent text-white"
+            className="border border-zinc-500 rounded-sm w-60 p-1 text-sm bg-transparent"
             value={title}
             onChange={handleTitle}
           />
           <input
             placeholder="Enter description..."
-            className="border border-zinc-500 rounded-sm w-60 p-1 text-sm bg-transparent text-white"
+            className="border border-zinc-500 rounded-sm w-60 p-1 text-sm bg-transparent"
             value={desc}
             onChange={handleDesc}
           />
           <button
             type="submit"
-            className="border border-zinc-500 bg-emerald-700 hover:bg-emerald-800 rounded-sm text-white px-3 py-1 text-sm"
+            className="border border-zinc-500 bg-emerald-700 hover:bg-emerald-800 rounded-sm px-3 py-1 text-sm"
           >
             Add Task
           </button>

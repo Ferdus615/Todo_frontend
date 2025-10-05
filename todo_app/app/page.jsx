@@ -115,33 +115,40 @@ function Page() {
   }
 
   return (
-    <div className="p-5">
-      <aside></aside>
-      <h1 className="text-center text-3xl font-medium text-emerald-400 mb-10">
-        My Todo List
-      </h1>
-      <form onSubmit={handleSubmit} className="flex justify-center gap-2">
-        <input
-          placeholder="Enter task here."
-          className="border-1 border-black rounded-sm w-50 p-1"
-          value={title}
-          onChange={handleTitle}
-        />
-        <input
-          placeholder="Enter description here."
-          className="border-1 border-black rounded-sm w-50 p-1"
-          value={desc}
-          onChange={handleDesc}
-        />
-        <button
-          type="submit"
-          className="border-1 border-black bg-black rounded-sm text-white w-50 p-1"
-        >
-          Add Task
-        </button>
-      </form>
+    <div className="flex h-screen w-screen">
+      <aside className="flex flex-col items-start gap-5 p-5 bg-zinc-900">
+        <button>New task</button>
+        <button>Archive</button>
+        <button>Trash</button>
+      </aside>
 
-      <div>{renderTask}</div>
+      <div className="flex-grow pt-5">
+        <h1 className="text-center text-3xl font-medium text-emerald-400 mb-10">
+          My Todo List
+        </h1>
+        <form onSubmit={handleSubmit} className="flex justify-center gap-2">
+          <input
+            placeholder="Enter task here."
+            className="border-1 border-black rounded-sm w-50 p-1"
+            value={title}
+            onChange={handleTitle}
+          />
+          <input
+            placeholder="Enter description here."
+            className="border-1 border-black rounded-sm w-50 p-1"
+            value={desc}
+            onChange={handleDesc}
+          />
+          <button
+            type="submit"
+            className="border-1 border-black bg-black rounded-sm text-white w-50 p-1"
+          >
+            Add Task
+          </button>
+        </form>
+
+        <div>{renderTask}</div>
+      </div>
     </div>
   );
 }

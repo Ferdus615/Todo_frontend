@@ -57,7 +57,11 @@ function Page() {
     setTasks((oldtask) => oldtask.filter((task) => task.id !== id));
   };
 
-  let renderTask = <p>No tasks yet! Add one above.</p>;
+  let renderTask = (
+    <p className="text-center mt-10 text-zinc-500">
+      No tasks yet! Add one above.
+    </p>
+  );
   if (tasks.length > 0) {
     renderTask = (
       <div className="flex gap-5 mt-10">
@@ -112,6 +116,7 @@ function Page() {
 
   return (
     <div className="p-5">
+      <aside></aside>
       <h1 className="text-center text-3xl font-medium text-emerald-400 mb-10">
         My Todo List
       </h1>
